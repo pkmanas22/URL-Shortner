@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+
+    <title>urlSnip - URL Shortener and Tracker</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/trialPage.css">
+</head>
+
+<body>
+
+    <div class="background-shape circle"></div>
+    <div class="background-shape cube"></div>
+
+    <div class="container">
+        <div class="nav">
+            <div class="logo" onclick="window.location.href = '/'" style="cursor: pointer;">
+                <h1>urlSnip</h1>
+            </div>
+            <div class="login-option">
+                <button class="login" onclick="loginMethod()">Login <img src="res/sign-in.svg" class="svgIcon" alt=""></button>
+                <button class="register" onclick="signupMethod()">Register Now</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="text">
+                <h1>Shorten Your Loooong Links :)</h1>
+                <div class="desc">
+                    <p>urlSnip is an efficient and easy-to-use URL shortening service that streamlines your online
+                        experience.</p>
+
+                    <button>
+                        <img src="res/link.svg" class="svgIcon" alt="">
+                        <form >
+                            <input type="url" name="" id="" placeholder="Enter the link here" >
+                            <input type="button" onclick="showLoginAlert()" value="Shorten Now!">
+                        </form>
+                    </button>
+                    <p style="font-size: 25px;">You need to <a href="#" onclick="loginMethod()"">log in</a> / <a href="#" onclick="signupMethod()">register</a> to use the URL shortening feature.</p>
+                </div>
+            </div>
+            <div class="table">
+                <div class="table-row">
+                    <div class="header">Short Link</div>
+                    <div class="header">Original Link</div>
+                    <div class="header">Clicks</div>
+                    <div class="header">Date</div>
+                    <div class="header">Action</div>
+                </div>
+                <div class="table-row">
+                    <a href="https://manaskpradhan.vercel.app" target="_blank">http://localhost:8000/58f6h8</a>
+                    <div class="originalLink"><img src="" alt=""
+                            style="border-radius: 30%;">https://manaskpradhan.vercel.app/</div>
+                    <div>
+                        50
+                    </div>
+                    <div>
+                        01-01-24
+                    </div>
+                    <div>
+                        <a href="">
+                            <img src="res/deleteicon.svg" class="svgIcon deleteItem" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="table-row blur">
+                    <a href="">http://localhost:8000/58f6h8</a>
+                    <div class="originalLink"><img src="" alt=""
+                            style="border-radius: 30%;">https://www.twitter.com/tweets/8erelCoihu/</div>
+                    <div>50</div>
+                    <div>03-01-24</div>
+                    <div><img src="res/deleteicon.svg" class="svgIcon deleteItem" alt=""></div>
+                </div>
+                <div class="table-row blur">
+                    <a href="">http://localhost:8000/58f6h8</a>
+                    <div class="originalLink"><img src="" alt=""
+                            style="border-radius: 30%;">https://www.twitter.com/tweets/8erelCoihu/</div>
+                    <div>50</div>
+                    <div>03-01-24</div>
+                    <div><img src="res/deleteicon.svg" class="svgIcon deleteItem" alt=""></div>
+                </div>
+                <div class="table-row blur">
+                    <a href="">http://localhost:8000/58f6h8</a>
+                    <div class="originalLink"><img src="" alt=""
+                            style="border-radius: 30%;">https://www.twitter.com/tweets/8erelCoihu/</div>
+                    <div>50</div>
+                    <div>03-01-24</div>
+                    <div><img src="res/deleteicon.svg" class="svgIcon deleteItem" alt=""></div>
+                </div>
+                <div class="table-row blur">
+                    <a href="">http://localhost:8000/58f6h8</a>
+                    <div class="originalLink"><img src="" alt=""
+                            style="border-radius: 30%;">https://www.twitter.com/tweets/8erelCoihu/</div>
+                    <div>50</div>
+                    <div>03-01-24</div>
+                    <div><img src="res/deleteicon.svg" class="svgIcon deleteItem" alt=""></div>
+                </div>
+                <p><a class="register" onclick="signupMethod()">Register Now</a> to enjoy Unlimited History</p>
+
+            </div>
+
+
+        </div>
+        
+        <%- include("./partials/theme.ejs") %>
+        
+        <div id="loginDiv" style="display: none;">
+            <%- include("login.ejs") %>
+        </div>
+
+        <div id="signupDiv" style="display: none;">
+            <%- include("signup.ejs") %>
+        </div>
+
+        <%- include("./partials/msgCancel.ejs") %>
+
+        <%- include("./partials/footer.ejs") %>   
+
+        <script src="./js/preventImageDragable.js"></script>
+        <script src="./js/urlIcon.js"></script>
+        <script src="./js/theme.js"></script>
+        <script src="./js/loginSignup.js"></script>
+        
+        <script src="./js/sweetAlert.js"></script>
+
+</body>
+
+</html>

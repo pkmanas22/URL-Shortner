@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include("./partials/head.ejs") %>
+    <title>urlSnip || Home Page</title>
+
+    <link rel="stylesheet" type="text/css" href="./css/homePage.css">
+</head>
+
+<body>
+    <div class="background-shape circle"></div>
+    <div class="background-shape cube"></div>
+
+    <div class="container">
+        <div class="nav">
+            <div class="logo" onclick="window.location.href = '/'" style="cursor: pointer;">
+                <h1>urlSnip</h1>
+            </div>
+            <div class="input-field">
+                <img src="res/link.svg" class="svgIcon" alt="">
+                <form action="/url" method="post">
+                    <input type="url" name="url" id="url" placeholder="https://example.com" required>
+                    <input type="submit" value="Shorten Now!">
+                </form>
+            </div>
+            <img class="settingImg" src="res/setting.svg" class="svgIcon" alt="">
+            <div class="setting-div">
+                <div id="mobLogout" onclick="confirmLogout()">Logout</div>
+            </div>
+
+            <div class="profile-section">
+                <div class="dropdown-menu">
+                    <div class="profile">
+                        <p>Welcome,</p>
+                        <span style="text-transform: capitalize;"><%- profileName.trim().split(/\s+/)[0] %></span>
+                    </div>
+                    <div class="img">
+                        <img id="caretIcon" src="res/caretDown.svg" class="svgIcon" alt="">
+                    </div>
+                </div>
+                <div class="logout" onclick="confirmLogout()">Logout</div>
+            </div>
+        </div>
+
+        <div class="heading">
+            <img src="res/clock.svg" class="svgIcon" alt="">
+            <h2>History</h2>
+            (<span>
+                <%= urls.length %>
+            </span>)
+        </div>
+        <div class="table">
+            <div class="table-row">
+                <div class="header">Short Link</div>
+                <div class="header">Original Link</div>
+                <div class="header">Clicks</div>
+                <div class="header">Date</div>
+                <div class="header">Action</div>
+            </div>
+
+            <% if (urls.length !=0) { %>
+                <% urls.reverse().forEach(url=> { %>
+                    <div class="table-row">
+                        <a href="http://localhost:8000/url/<%= url.shortId %>" target="_blank">http://localhost:8000/<%=
+                                url.shortId %></a>
+                        <div class="originalLink"><img src="" alt="" style="border-radius: 30%;">
+                            <%= url.redirectUrl %>
+                        </div>
+                        <div>
+                            <%= url.visitHistory.length %>
+                        </div>
+                        <div>
+                            <%= formatDate(url.updatedAt) %>
+                        </div>
+                        
+                        <div>
+                            <a href="#" onclick="deleteConfirmation('<%= url.shortId %>')">
+                                <img src="res/deleteicon.svg" class="svgIcon deleteItem" alt="">
+                            </a>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <center>
+                    <h1>No URLs have been shortened yet. Start shortening URLs now!</h1>
+                </center>
+            <% } %>
+
+            <% function formatDate(date) {%>
+                <% const day=String(date.getDate()).padStart(2,"0");%>
+                <% const month=String(date.getMonth() + 1).padStart(2, "0" ) %>
+                <% const year=String(date.getFullYear()).slice(2) %>
+                <% return day + "-" + month + "-" + year %>>
+            <% } %>
+        </div>
+    </div>
+
+
+    <%- include("./partials/theme.ejs") %>
+
+    <%- include("./partials/script.ejs") %>
+
+
+    <script src="./js/sweetAlert.js"></script>
+<script>
+    
+</script>
+
+</body>
+
+</html>

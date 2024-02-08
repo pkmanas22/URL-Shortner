@@ -1,0 +1,243 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+        --background-col: #000000;
+        --text-color: #b400fb;
+        --input-field: #f6e2e8;
+        --login-bg: #270def;
+        --login-color: #fff;
+        --login-hover: #19cf53;
+        --link-hover: #ff0000;
+        --link-color: #ef7100;
+        --box-shadow: #ffffff;
+    }
+
+    .light:root {
+        --background-col: #fff;
+        --text-color: #b400fb;
+        --input-field: #FFA3BE;
+        --login-bg: #1e24db;
+        --login-color: #fff;
+        --login-hover: #19cf53;
+        --link-hover: #ff0000;
+        --link-color: #ef7100;
+        --box-shadow: #000;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .signup-container {
+        position: absolute;
+        top: 10vh;
+        right: 25%;
+        width: 50%;
+        height: fit-content;
+        margin: 50px auto;
+        background: var(--background-col);
+        font-size: 20px;
+        padding: 10px 50px;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 20px 4px var(--box-shadow);
+    }
+
+    @media (max-width: 920px) {
+        .signup-container {
+            width: 70%;
+            right: 15%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .signup-container {
+            width: 90%;
+            right: 5%;
+        }
+    }
+
+    .signup-container svg {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px;
+        cursor: pointer;
+        color: blue;
+    }
+
+    .signup-container svg path {
+        fill: var(--box-shadow);
+    }
+
+    .signup-container h1,
+    h4 {
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    .signup-container h4 span {
+        background: radial-gradient(12441.24% 97.1% at 5.56% 79.01%, #EB568E 0%, #144EE3 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .signup-container form {
+        margin-top: 20px;
+    }
+
+    .signup-container form .text {
+        margin: 5px auto;
+        width: 100%;
+        /* padding: 2px; */
+        line-height: 40px;
+        font-size: 25px;
+        font-weight: 800;
+        color: var(--text-color);
+    }
+
+    #name,
+    #signup-email,
+    #new-password,
+    #con-password {
+        font-size: 20px;
+        width: 100%;
+        line-height: 40px;
+        background: var(--input-field);
+        border-radius: 5px;
+        border: none;
+        padding: 1px 10px;
+    }
+
+    .signup-container form .additional {
+        display: block;
+        margin: 5px 10px;
+        font-size: 18px;
+    }
+
+    .signup-container form .additional .remember input {
+        margin-right: 5px;
+    }
+
+    #signup {
+        width: 100%;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 40px;
+        background: var(--login-bg);
+        color: var(--login-color);
+        border-radius: 5px;
+        border: none;
+        padding: 1px 10px;
+        margin: 5px auto;
+        cursor: pointer;
+    }
+
+    #signup:hover {
+        background: var(--login-hover);
+        transition: all 0.15s linear;
+    }
+
+    .signup-container form .signin {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .signup-container form a {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--link-color);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .signup-container form a:hover {
+        color: var(--link-hover);
+        transition: all 0.15s linear;
+        text-decoration: underline;
+    }
+
+    form span.red {
+        color: red;
+    }
+
+    form input:focus {
+        outline: none;
+    }
+
+    form input.error:focus {
+        outline: 4px solid red;
+    }
+
+    #nameError,
+    #emailError,
+    #newPasswordError,
+    #conPasswordError {
+        color: red;
+        font-size: 13px;
+    }
+</style>
+<div class="signup-container">
+    <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" height="16" width="16"
+        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+            d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+    </svg>
+
+    <h1>Create Account</h1>
+    <h4>Create an account to enjoy unlimited services</h4>
+
+    <form action="/signup" method="post">
+        <p style="font-size: 15px;"><span class="red">*</span>fields are mandatory</p>
+
+        <div class="text"><span class="red">*</span> Full Name</div>
+        <div>
+            <input required type="text" name="name" id="name" placeholder="Enter your Name">
+        </div>
+        <div id="nameError"></div>
+
+        <div class="text"><span class="red">*</span>Email</div>
+        <div>
+            <input type="email" name="email" id="signup-email" autocomplete="username"
+                placeholder="Enter your Email Id">
+        </div>
+        <div id="emailError"></div>
+
+        <div class="text"><span class="red">*</span>New Password</div>
+        <div>
+            <input required type="password" id="new-password" autocomplete="new-password" placeholder="New password">
+        </div>
+        <div id="newPasswordError"></div>
+
+        <div class="text"><span class="red">*</span>Confirm Password</div>
+        <div>
+            <input required type="password" id="con-password" name="password" autocomplete="new-password"
+                placeholder="Confirm password">
+        </div>
+        <div id="conPasswordError"></div>
+
+        <div class="additional"><span class="red">*</span>
+            <input required type="checkbox" name="aggreed" id="aggreed">
+            <label for="aggreed">I aggreed the <a>Terms & Conditions</a></label>
+        </div>
+
+        <div>
+            <input type="submit" onclick="return validateForm()" value="Sign Up" id="signup">
+        </div>
+
+        <div class="signin">
+            Already have an account
+            <a onclick="loginMethod()">signIn</a>
+        </div>
+    </form>
+</div>
+
+<script src="./js/validateForm.js"></script>

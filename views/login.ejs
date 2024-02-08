@@ -1,0 +1,211 @@
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+        --background-col: #000000;
+        --text-color: #b400fb;
+        --input-field: #FFA3BE;
+        --login-bg: #270def;
+        --login-color: #fff;
+        --login-hover: #19cf53;
+        --link-hover: #ff0000;
+        --link-color: #ef7100;
+        --box-shadow: #ffffff;
+    }
+
+    .light:root {
+        --background-col: #fff;
+        --text-color: #b400fb;
+        --input-field: #FFA3BE;
+        --login-bg: #1e24db;
+        --login-color: #fff;
+        --login-hover: #19cf53;
+        --link-hover: #ff0000;
+        --link-color: #ef7100;
+        --box-shadow: #000;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .login-container {
+        position: absolute;
+        top: 10vh;
+        right: 25%;
+        width: 50%;
+        height: fit-content;
+        margin: 50px auto;
+        background: var(--background-col);
+        font-size: 20px;
+        padding: 10px 50px;
+        border-radius: 10px;
+        box-shadow: inset 0px 0px 20px 4px var(--box-shadow);
+    }
+
+    @media (max-width: 920px) {
+        .login-container {
+            width: 70%;
+            right: 15%;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .login-container {
+            width: 90%;
+            right: 5%;
+        }
+    }
+
+    .login-container svg {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+    .login-container svg path {
+        fill: var(--box-shadow);
+    }
+
+    .login-container h1,
+    h4 {
+        text-align: center;
+        margin: 5px auto;
+    }
+
+    .login-container h4 span {
+        background: radial-gradient(12441.24% 97.1% at 5.56% 79.01%, #EB568E 0%, #144EE3 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .login-container form {
+        margin-top: 20px;
+    }
+
+    .login-container form .text {
+        margin: 5px auto;
+        width: 100%;
+        /* padding: 2px; */
+        line-height: 40px;
+        font-size: 25px;
+        font-weight: 800;
+        color: var(--text-color);
+    }
+
+    #email,
+    #password {
+        font-size: 20px;
+        width: 100%;
+        line-height: 40px;
+        background: var(--input-field);
+        border-radius: 5px;
+        border: none;
+        padding: 1px 10px;
+    }
+
+    .login-container form .additional {
+        display: flex;
+        justify-content: space-between;
+        font-size: 18px;
+        margin: 5px;
+    }
+
+    .login-container form .additional .remember input {
+        margin-right: 5px;
+    }
+
+    #login {
+        width: 100%;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 40px;
+        background: var(--login-bg);
+        color: var(--login-color);
+        border-radius: 5px;
+        border: none;
+        padding: 1px 10px;
+        margin: 5px auto;
+        cursor: pointer;
+    }
+
+    #login:hover {
+        background: var(--login-hover);
+        transition: all 0.15s linear;
+    }
+
+    .login-container form .signup {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    .login-container form a {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--link-color);
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .login-container form a:hover {
+        color: var(--link-hover);
+        transition: all 0.15s linear;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <svg class="crossmark" xmlns="http://www.w3.org/2000/svg" height="16" width="16"
+        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+        <path
+            d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+    </svg>
+
+    <h1>Login Now</h1>
+    <h4>Hiii, Welcome back to <span>URL Shortner</span></h4>
+
+    <form action="/login" method="post">
+        <p style="font-size: 15px;"><span class="red">*</span>fields are mandatory</p>
+        <div class="text"><span class="red">*</span> Email</div>
+        <div>
+            <input required type="email" name="email" id="email" autocomplete="username"
+                placeholder="Enter your email Id">
+        </div>
+
+        <div class="text"><span class="red">*</span> Password</div>
+        <div>
+            <input required type="password" name="password" id="password" autocomplete="current-password"
+                placeholder="Your password">
+        </div>
+
+        <div class="additional">
+            <span class="remember">
+                <input type="checkbox" name="rememberMe" id="rememberMe">
+                <label for="rememberMe">Remember Me</label>
+            </span>
+            <span class="forgot-pwd">
+                <a>Forgot Password</a>
+            </span>
+        </div>
+
+        <div>
+            <input type="submit" value="Login" id="login">
+        </div>
+
+        <div class="signup">
+            Not registered yet?
+            <span>Create an account</span>
+            <a onclick="signupMethod()">SignUp</a>
+        </div>
+    </form>
+</div>

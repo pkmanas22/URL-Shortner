@@ -1,0 +1,78 @@
+<style>
+    .display-message {
+        width: 40vw;
+        min-height: 50px;
+        height: fit-content;
+        background: #ff0000;
+        color: #ffffff;
+        position: fixed;
+        transform-origin: bottom right;
+        bottom: 1vh;
+        right: 20px;
+        border-radius: 10px;
+        display: flex;
+    }
+
+    .display-message::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, #ff0000, #ee6464, #cc0000);
+        z-index: -1;
+        border-radius: 10px;
+        box-shadow: 0px 0px 12px 6px rgba(0, 0, 0, 0.3);
+    }
+
+
+    .display-message.animation {
+        animation: movingMsgBox 2.5s;
+
+        transition: transform 0.4s ease-in-out;
+    }
+
+    .display-message p {
+        padding: 5px;
+        font-size: 20px;
+        text-shadow: 6px 4px 6px black;
+        width: calc(40vw - 50px);
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .display-message #msgCancel {
+        height: 100%;
+    }
+
+    .display-message #msgCancel svg {
+        width: 30px;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    @keyframes movingMsgBox {
+        from {}
+
+        to {
+            transform: translateX(calc(40vw + 20px));
+        }
+    }
+</style>
+
+<% if (error) { %>
+    <div class="display-message">
+        <p><%= error %></p>
+        <div id="msgCancel">
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z" />
+            </svg>
+        </div>
+    </div>
+<% } %>
+
+
+<script src="./js/msgCancel.js"></script>
