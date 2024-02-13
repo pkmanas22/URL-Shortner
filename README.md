@@ -1,4 +1,4 @@
-# URLSnip - Modern URL Shortener
+# URLSnip - URL Shortener
 
 ## Overview
 
