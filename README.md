@@ -4,6 +4,16 @@
 
 URLSnip is a contemporary URL shortening and tracking service designed to simplify link management and provide insights into link usage. This project encompasses user authentication, URL shortening, tracking click statistics, and managing user profiles.
 
+## Prerequisites
+
+Before getting started, make sure you have the following prerequisites installed on your system:
+
+1. **Node.js and npm:** You can download and install Node.js from [here](https://nodejs.org/).
+
+2. **MongoDB:** You'll need MongoDB installed and running. Download and installation instructions can be found [here](https://www.mongodb.com/try/download/community).
+
+3. **Git:** You can download and install Git from [here](https://git-scm.com/downloads).
+
 ## Features
 
 - **URL Shortening:** Quickly shorten long URLs for easy sharing and tracking.
