@@ -19,6 +19,7 @@ const UserModel = require('./models/users');
 // Creating an Express application
 const app = express();
 const PORT = process.env.PORT || 8000;      // for dynamically change by service provider
+const originUrl = process.env.HOST_URL;
 
 // MongoDB connection
 // connectToMongoDB("mongodb://127.0.0.1:27017/urlShortnerProject")         --> local mongoDB
@@ -48,6 +49,7 @@ app.get('/', checkForAuthentication, restrictTo, async (req, res) => {
     // console.log(allUrls);
 
     return res.render("homePage", {
+        originUrl,
         urls: allUrls,
         profileName: req.user.name,
     });
@@ -61,5 +63,5 @@ app.use('/', userRoute);
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`Server started at http://localhost:${PORT}`);
+    console.log(`Server started at ${originUrl}`);
 });

@@ -96,7 +96,7 @@ img.svgIcon {
 
 .container .nav {
     width: 90%;
-    height: 15vh;
+    /* height: 15vh; */
     margin: 20px auto;
     /* background: red; */
     display: flex;
@@ -262,6 +262,9 @@ img.svgIcon {
 }
 
 @media (max-width: 450px) {
+    .container .nav{
+        margin: 5px auto;
+    }
     .container .nav .settingImg {
         display: flex;
         height: fit-content;
@@ -329,7 +332,8 @@ img.svgIcon {
 }
 
 .container .table .table-row:nth-of-type(1) {
-    height: 50px;
+    /* height: 50px; */
+    padding: 5px 0;
     background: var(--table-header-bg);
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(14px);
@@ -337,6 +341,7 @@ img.svgIcon {
     font-size: 20px;
     border-radius: 20px 20px 5px 5px;
     text-align: center;
+
 }
 
 .container .table .table-row .header {

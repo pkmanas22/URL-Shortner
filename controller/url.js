@@ -1,4 +1,3 @@
-
 const shortId = require('short-id');
 const URLModel = require('../models/url');
 const { catchErrorMsg } = require("../views/js/catchErrorMsg");
@@ -23,7 +22,7 @@ async function handleURLShortner(req, res) {
 
         res.redirect('/');
     } catch (error) {
-        console.error("An unexpected error occurred:", error);
+        // console.error("An unexpected error occurred:", error);
         const myDomain = req.protocol + '://' + req.get('host');
         const errorMessage = "Oops! Something went wrong. We're working to fix it. Please go back to the <a href=\"" + myDomain + "\">home page</a> and try again.";
         res.status(500).send(catchErrorMsg(errorMessage));
@@ -49,19 +48,18 @@ async function handleRedirectURL(req, res) {
             // console.log(findEntry.shortId);
             res.redirect(findEntry.redirectUrl);
         } else {
-            console.error("Document not found");
+            // console.error("Document not found");
             const myDomain = req.protocol + '://' + req.get('host');
             const errorMessage = `The requested URL was not found. Please try shortening another URL on our platform: <a href="${myDomain}">${myDomain}</a>`;
-
             res.status(404).send(catchErrorMsg(errorMessage));
         }
     } catch (error) {
-        console.error("Error:", error);
+        // console.error("Error:", error);
         const errorMessage = "Internal Server Error";
         res.status(500).send(catchErrorMsg(errorMessage));
     }
-
 }
+
 async function handleDeleteURL(req, res) {
     try {
         const shortId = req.params.shortId;
@@ -72,7 +70,7 @@ async function handleDeleteURL(req, res) {
 
         res.redirect('/');
     } catch (error) {
-        console.error("Error:", error);
+        // console.error("Error:", error);
         const errorMessage = "Internal Server Error";
         res.status(500).send(catchErrorMsg(errorMessage));
     }

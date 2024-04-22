@@ -75,7 +75,7 @@ function validateEmail(email) {
 }
 
 function isAlphanumeric(str) {
-    const alphanumericRegex = /^[0-9a-zA-Z]+$/;
+    const alphanumericRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     return alphanumericRegex.test(str);
 }
 

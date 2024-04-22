@@ -47,7 +47,7 @@
 
 body {
     min-width: 320px;
-    min-height: 750px;
+    /* min-height: 750px; */
     width: 100vw;
     background: var(--background-colour);
     color: var(--body-colour);
@@ -138,7 +138,7 @@ img.svgIcon {
     background: var(--input-bg-blue-colour);
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
     color: var(--white-colour);
-    padding: 12px 18.188px 12px 18px;
+    padding: 0px 18.188px 0px 18px;
     font-size: 16px;
     line-height: 18px;
     margin-left: 18px;
@@ -173,9 +173,14 @@ img.svgIcon {
     flex-direction: column;
 }
 
+@media ((max-width: 650px) ) {
+    .container .content .text .desc {
+        width: 100%;
+    }
+}
 .container .content .text .desc p {
     color: var(--body-colour);
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     margin-bottom: 18px;
 }
@@ -223,6 +228,16 @@ img.svgIcon {
     cursor: pointer;
 }
 
+@media (max-width: 450px) {
+    .container .content .text .desc button{
+        display: none;
+    }
+
+    .container .content .text .desc p{
+        font-size: 20px;
+    }
+}
+
 .container .content .text .desc button form input[type="submit"]:hover,
 .container .nav .login-option .login:hover,
 .container .nav .login-option .register:hover{
@@ -252,7 +267,7 @@ img.svgIcon {
 }
 
 .container .content .table .table-row:nth-of-type(1) {
-    height: 50px;
+    /* height: 50px; */
     background: var(--table-header-bg);
     box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.10);
     backdrop-filter: blur(14px);
@@ -308,7 +323,7 @@ img.svgIcon {
     text-align: center;
     position: relative;
     bottom: 3px;
-    top: -150px;
+    top: -110px;
     font-size: 30px;
     font-weight: 900;
     color: var(--body-colour);
@@ -365,3 +380,24 @@ img.svgIcon {
     transform: rotate(289deg);
 }
 
+@media (max-width: 500px) {
+    .theme-container button{
+        padding: 5px;
+    }
+
+    .container .content .table p {
+        font-size: unset;
+        top: -50px;
+    }
+    .container .content .table p a {
+        font-size: unset;
+    }
+
+    footer {
+        font-size: 10px;
+    }
+    .container .content .table .table-row:nth-of-type(3),
+    .container .content .table .table-row:nth-of-type(4){
+        display: none;
+    }
+}

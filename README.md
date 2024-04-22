@@ -100,7 +100,6 @@ Before getting started, make sure you have the following prerequisites installed
 - **nodemon:** Development tool for automatic server restarts.
 - **jsonwebtoken:** JSON Web Token implementation.
 - **short-id:** Library for generating short and unique IDs.
-- **uuid:** Library for creating unique identifiers.
 
 ## Notes
 

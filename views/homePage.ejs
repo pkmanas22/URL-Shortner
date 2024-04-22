@@ -62,7 +62,7 @@
             <% if (urls.length !=0) { %>
                 <% urls.reverse().forEach(url=> { %>
                     <div class="table-row">
-                        <a href="http://localhost:8000/url/<%= url.shortId %>" target="_blank">http://localhost:8000/<%=
+                        <a href="<%= originUrl %>/url/<%= url.shortId %>" target="_blank"><%= originUrl %>/url/<%=
                                 url.shortId %></a>
                         <div class="originalLink"><img src="" alt="" style="border-radius: 30%;">
                             <%= url.redirectUrl %>
@@ -103,10 +103,6 @@
 
 
     <script src="./js/sweetAlert.js"></script>
-<script>
-    
-</script>
-
 </body>
 
 </html>

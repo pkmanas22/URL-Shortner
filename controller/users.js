@@ -1,19 +1,19 @@
 const UserModel = require('../models/users');
-const { setUser } = require('../services/jwtAuth')
+const { setUser } = require('../services/jwtAuth');
+
+const originUrl = process.env.HOST_URL;
 
 async function handleUserSignup(req, res) {
     const { name, email, password } = req.body;
-    // console.log(name + email + password);
-
-    const existingEmail = await UserModel.findOne({ email });
-    // console.log(existingEmail ? existingEmail.email + " " + email : "No existing email found");
-
-    if (existingEmail && email === existingEmail.email) {
-        const errorMessage = `The provided email address is already registered with us. Please use a different email address.`;
-        return res.render("trialPage", { error: errorMessage });
-    }
 
     try {
+        const existingEmail = await UserModel.findOne({ email });
+
+        if (existingEmail && email === existingEmail.email) {
+            const errorMessage = `The provided email address is already registered with us. Please use a different email address.`;
+            return res.render("trialPage", { error: errorMessage, originUrl });
+        }
+
         const newUser = await UserModel.create({
             name,
             email,
@@ -25,9 +25,9 @@ async function handleUserSignup(req, res) {
 
         res.redirect('/');
     } catch (error) {
-        console.error("Error while signup: ", error);
+        console.error("Error while signing up: ", error);
         const errorMessage = "An error occurred during signup. Please try again.";
-        res.render("trialPage", { error: errorMessage });
+        res.render("trialPage", { error: errorMessage, originUrl });
     }
 }
 
@@ -40,8 +40,8 @@ async function handleUserLogin(req, res) {
         const user = await UserModel.findOne({ email, password });
         // console.log(user);
         if (!user) {
-            const errorMessage = "Invalid Username or password";
-            return res.render("trialPage", { error: errorMessage });
+            const errorMessage = "Invalid username or password.";
+            return res.render("trialPage", { error: errorMessage, originUrl });
         }
 
         const token = setUser(user);
@@ -53,21 +53,28 @@ async function handleUserLogin(req, res) {
         }
 
         res.redirect("/");
-
     } catch (error) {
-        console.error(error + ": Error during login");
+        console.error("Error while logging in: ", error);
         const errorMessage = "An unexpected error occurred during login.";
-        res.render("trialPage", { error: errorMessage });
+        res.render("trialPage", { error: errorMessage, originUrl });
     }
 }
 
 async function handleUserLogout(req, res) {
-
-    res.redirect("/trial");
+    try {
+        // Clear the user session
+        res.clearCookie("uid");
+        res.clearCookie("s_uid");
+        res.redirect("/trial");
+    } catch (error) {
+        console.error("Error while logging out: ", error);
+        const errorMessage = "An unexpected error occurred during logout.";
+        res.render("trialPage", { error: errorMessage, originUrl });
+    }
 }
 
 module.exports = {
     handleUserLogin,
     handleUserSignup,
     handleUserLogout
-}
+};
