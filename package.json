@@ -17,7 +17,7 @@
     "express-session": "^1.17.3",
     "jsonwebtoken": "^9.0.2",
     "memory-cache": "^0.2.0",
-    "mongoose": "^8.0.3",
+    "mongoose": "^6.0.0",
     "nodemon": "^3.0.2",
     "short-id": "^0.1.0-1"
   }
